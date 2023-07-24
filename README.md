@@ -1,6 +1,6 @@
 # 仅作 django 学习记录
 
-安装启动流程
+### 1. 基本的安装启动流程
 ```shell
 # 安装django
 pip install django
@@ -30,3 +30,5 @@ python.exe .\manage.py startapp app01
 # 启动服务
 python.exe .\manage.py runserver 8000
 ```
+
+### 2. 加载html输出视图
