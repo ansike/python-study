@@ -28,7 +28,8 @@ python.exe .\manage.py startapp app01
 #    return HttpResponse("欢迎使用")
 
 # 启动服务
-python.exe .\manage.py runserver 8000
+python.exe .\manage.py runserver 8000 # windows
+python3 manage.py runserver 8000 # mac
 ```
 
 ### 2. 加载html输出视图
