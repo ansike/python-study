@@ -4,6 +4,12 @@
 ```shell
 # 安装django
 pip install django
+# pip3 install django
+
+# 查看django版本
+python3 -m django --version
+# 4.2.5
+
 # 初始化django项目
 django-admin.exe startproject xxx
 # 初始化一个app
@@ -33,3 +39,10 @@ python3 manage.py runserver 8000 # mac
 ```
 
 ### 2. 加载html输出视图
+
+
+# FAQ
+1. You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+
+Run 'python manage.py migrate' to apply them.
+
