@@ -24,4 +24,5 @@ urlpatterns = [
     path('/', views.index),
     path('/html', views.html),
     path('/redis', views.redis),
+    path('/add', views.add),
 ]

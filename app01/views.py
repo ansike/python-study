@@ -1,6 +1,8 @@
+import json
 from django.shortcuts import render, HttpResponse
 from django_redis import get_redis_connection
 
+from . import models
 # Create your views here.
 
 def index(request):
@@ -22,3 +24,18 @@ def redis(request):
         return HttpResponse('<h1>{0}: {1}</h1>'.format(key, conn.get(key)))
     else:
         return HttpResponse('<h1>没有找到</h1>')
+
+def add(request):
+    if request.method == 'GET':
+        return HttpResponse('<h1>请使用POST增加数据</h1>')
+    else:
+        # formdata
+        # title = request.POST.get("title","")
+        # content = request.POST.get("content","")
+
+        # application/json
+        data = json.loads(request.body)
+        print(data)
+        user = models.AUsers.objects.create(title=data['title'], content=data['content'])
+        print(user)
+        return HttpResponse('新增成功')
