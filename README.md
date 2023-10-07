@@ -41,6 +41,16 @@ python3 manage.py runserver 8000 # mac
 ### 2. 加载html输出视图
 
 
+
+### 3. 连接redis mysql celery
+
+
+
+### 4. 使用
+
+
+
+
 # FAQ
 1. You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
 
