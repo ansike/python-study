@@ -1,6 +1,9 @@
 import json
 from django.shortcuts import render, HttpResponse
 from django_redis import get_redis_connection
+from django.core import serializers
+from django.http import JsonResponse
+from .tasks import add
 
 from . import models
 # Create your views here.
@@ -25,7 +28,7 @@ def redis(request):
     else:
         return HttpResponse('<h1>没有找到</h1>')
 
-def add(request):
+def addUser(request):
     if request.method == 'GET':
         return HttpResponse('<h1>请使用POST增加数据</h1>')
     else:
@@ -39,3 +42,19 @@ def add(request):
         user = models.AUsers.objects.create(title=data['title'], content=data['content'])
         print(user)
         return HttpResponse('新增成功')
+
+def list(request):
+    all = models.AUsers.objects.all()
+    res = serializers.serialize('json', all)
+    return HttpResponse(res)
+
+
+
+def async_add(request):
+    x = request.GET.get('x')
+    y = request.GET.get('y')
+    print(x)
+    print(y)
+    # 调用Celery任务
+    result = add(int(x), int(y))
+    return JsonResponse({'task_id': result})

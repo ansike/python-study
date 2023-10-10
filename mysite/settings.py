@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app01.apps.App01Config' # 注册app
+    'app01.apps.App01Config', # 注册app
 ]
 
 MIDDLEWARE = [
@@ -142,3 +142,13 @@ CACHES = {
         }
     }
 }
+
+# Celery配置
+CELERY_BROKER_URL = 'redis://:redispw@127.0.0.1:6381/1'  # 使用Redis作为消息代理
+CELERY_RESULT_BACKEND = 'redis://:redispw@127.0.0.1:6381/2'  # 使用Redis存储Celery任务结果
+
+# 配置异步任务队列名称（可选）
+CELERY_DEFAULT_QUEUE = 'default'
+
+# 配置Celery时区（可选）
+CELERY_TIMEZONE = 'UTC'

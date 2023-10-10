@@ -24,5 +24,7 @@ urlpatterns = [
     path('/', views.index),
     path('/html', views.html),
     path('/redis', views.redis),
-    path('/add', views.add),
+    path('/user/add', views.addUser),
+    path('/user/list', views.list),
+    path('/async_add', views.async_add),
 ]
